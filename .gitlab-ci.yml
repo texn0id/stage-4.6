@@ -29,5 +29,5 @@ run_linter:
   tags:
   - dell
   script:
-    - yarn add --dev eslint@7.11.0
+    - yarn add --dev eslint@8.22.0
     - yarn run eslint src/**.js
