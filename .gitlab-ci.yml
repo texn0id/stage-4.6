@@ -5,6 +5,8 @@ stages:
 
 install_dependencies:
  stage: build
+ tags:
+  - dell
  script: yarn install
  artifacts:
    paths:
@@ -15,9 +17,16 @@ install_dependencies:
        - yarn.lock
    paths:
      - node_modules
+
 run_tests:
  stage: test
+ tags:
+  - dell
  script: CI=true yarn test
 
-
+run_linter:
+  stage: test
+  tags:
+  - dell
+  script: yarn run eslint src/**.js
 
