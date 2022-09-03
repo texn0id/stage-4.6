@@ -1,12 +1,11 @@
-image: node:16.0.0
 runs-on: self-hosted
+image: node:16.0.0
 stages:
  - build
  - test
 
 install_dependencies:
  stage: build
- runs-on: self-hosted
 #tags:
  # - dell
  script: yarn install
