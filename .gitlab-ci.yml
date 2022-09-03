@@ -1,12 +1,14 @@
 image: node:16.0.0
+runs-on: self-hosted
 stages:
  - build
  - test
 
 install_dependencies:
  stage: build
- tags:
-  - dell
+ runs-on: self-hosted
+#tags:
+ # - dell
  script: yarn install
  artifacts:
    paths:
@@ -20,14 +22,16 @@ install_dependencies:
 
 run_tests:
  stage: test
- tags:
-  - dell
+ runs-on: self-hosted
+# tags:
+#  - dell
  script: CI=true yarn test
 
 run_linter:
   stage: test
-  tags:
-  - dell
+#  tags:
+#  - dell
+  runs-on: self-hosted
   script:
     - yarn add --dev eslint@8.22.0
     - yarn run eslint src/**.js
