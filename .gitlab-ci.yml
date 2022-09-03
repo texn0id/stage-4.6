@@ -5,13 +5,12 @@ stages:
 
 install_dependencies:
  stage: build
-      runs-on: self-hosted
-#tags:
- # - dell
+      tags:
+          - dell
  script: yarn install
  artifacts:
-   paths:
-     - node_modules
+         paths:
+             - node_modules
  cache:
    key:
      files:
@@ -20,17 +19,15 @@ install_dependencies:
      - node_modules
 
 run_tests:
- stage: test
- runs-on: self-hosted
-# tags:
-#  - dell
- script: CI=true yarn test
+         stage: test
+              tags:
+                  - dell
+              script: CI=true yarn test
 
 run_linter:
   stage: test
-#  tags:
-#  - dell
-  runs-on: self-hosted
-  script:
-    - yarn add --dev eslint@8.22.0
-    - yarn run eslint src/**.js
+       tags:
+          - dell
+       script:
+            - yarn add --dev eslint@8.22.0
+            - yarn run eslint src/**.js
