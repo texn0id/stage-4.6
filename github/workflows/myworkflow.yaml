@@ -1,0 +1,11 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  job1:
+    name: job1
+    runs-on: self-hosted
+    steps:
+      - name: step1
+        run: echo "action 1"
+      - name: step2
+        run: echo "action 2"
